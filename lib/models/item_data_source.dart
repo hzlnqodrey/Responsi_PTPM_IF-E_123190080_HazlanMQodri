@@ -1,23 +1,23 @@
-// import '../services/api/baseNetwork.dart';
+import '../api/baseNetwork.dart';
 
-// class BookDataSource {
-//   static BookDataSource instance = BookDataSource();
-//   Future<Map<String, dynamic>> loadBooks() {
-//     return BaseNetwork.get("new");
-//   }
-// }
+class AgentDataSource {
+  static AgentDataSource instance = AgentDataSource();
+  Future<Map<String, dynamic>> loadAgents() {
+    return BaseNetwork.get("agents");
+  }
+}
 
-// class BookDetailSource {
-//   static BookDetailSource instance = BookDetailSource();
-//   Future<Map<String, dynamic>> loadBookDetail(String isbn13) {
-//     return BaseNetwork.get("books/${isbn13}");
-//   }
-// }
+class AgentDetailSource {
+  static AgentDetailSource instance = AgentDetailSource();
+  Future<Map<String, dynamic>> loadAgentDetail(String agentUuid) {
+    return BaseNetwork.get("agents/${agentUuid}");
+  }
+}
 
-// class BookSearch{
-//   static BookSearch instance = BookSearch();
-//   Future<Map<String, dynamic>> searchBooks(String search) {
-//     return BaseNetwork.get("/search/${search}");
-//   }
-// }
+class MapSource {
+  static MapSource instance = MapSource();
+  Future<Map<String, dynamic>> loadMaps() {
+    return BaseNetwork.get("maps");
+  }
+}
 
