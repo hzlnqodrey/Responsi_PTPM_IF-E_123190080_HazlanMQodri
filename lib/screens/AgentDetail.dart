@@ -153,6 +153,20 @@ class _AgentDetailState extends State<AgentDetail> {
                                             horizontal: 28.0, vertical: 25),
                                         child: ListView(
                                           children: [
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              "" +
+                                                  "${data.data?.displayName}" +
+                                                  " ${data.data?.developerName}",
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
                                             Text(
                                               "Roles: " +
                                                   "${data.data?.role?.displayName}",

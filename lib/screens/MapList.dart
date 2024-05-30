@@ -62,9 +62,7 @@ class _MapListState extends State<MapList> {
                   itemCount: maps.data?.length,
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onTap: () {
-                        
-                      },
+                      onTap: () {},
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
@@ -105,8 +103,18 @@ class _MapListState extends State<MapList> {
                               width: 10,
                             ),
                             ElevatedButton(
-                              onPressed: () {
-                                _launchURL(maps.data?[index].mapUrl ?? "");
+                              onPressed: () async {
+                                if (await canLaunch(
+                                    maps.data?[index].mapUrl ?? "")) {
+                                  await launch(maps.data?[index].mapUrl ?? "");
+                                } else {
+                                  // Handle the error when the maps.data?[index].mapUrl ?? "" can't be launched
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(
+                                            'Could not launch $maps.data?[index].mapUrl ?? ""')),
+                                  );
+                                }
                               },
                               child: Text("View Map"),
                             ),
